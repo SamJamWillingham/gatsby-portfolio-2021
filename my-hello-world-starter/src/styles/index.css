@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css");
+
+.App {
+  height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(to top, #fff 0%, #ddb7ab 100%);
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+* {
+  font-family: "Reenie Beanie", cursive;
+}
+
+.name {
+  position: relative;
+  font-size: 7em;
+  text-align: right;
+  line-height: 0.6;
+  z-index: 2;
+}
+.arch {
+  position: absolute;
+  top: 47px;
+  right: 8px;
+  width: 325px;
+  height: 85px;
+  background-color: #999b84;
+  z-index: 1;
+}
+.contact {
+  position: relative;
+  font-size: 40px;
+  text-align: right;
+  padding: 20px 0;
+}
+.bi {
+  margin: 15px 10px;
+}
+.bi:hover {
+  text-shadow: 2px 2px #fff;
+  cursor: pointer;
+}
+.plant {
+  position: fixed;
+  bottom: 0;
+  z-index: 0;
+}

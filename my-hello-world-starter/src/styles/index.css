@@ -25,7 +25,7 @@
   position: absolute;
   top: 47px;
   right: 8px;
-  width: 325px;
+  width: 330px;
   height: 85px;
   background-color: #999b84;
   z-index: 1;
@@ -36,10 +36,11 @@
   text-align: right;
   padding: 20px 0;
 }
-.bi {
+a .bi {
+  color: #000;
   margin: 15px 10px;
 }
-.bi:hover {
+a .bi:hover {
   text-shadow: 2px 2px #fff;
   cursor: pointer;
 }

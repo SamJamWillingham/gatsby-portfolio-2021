@@ -1,0 +1,76 @@
+.button-wrapper {
+  position: absolute;
+  right: 10px;
+}
+
+button {
+  display: block;
+  margin: 10px;
+  background-color: rgba(255, 255, 255, 0.3);
+  color: #000;
+  border: none;
+  text-align: right;
+  font-size: 30px;
+  padding: 15px;
+}
+
+button:hover {
+  text-shadow: 2px 2px #fff;
+}
+
+button:focus {
+  display: none;
+}
+
+.bi.bi-chevron-down,
+.bi.bi-chevron-up,
+.bi.bi-person,
+.bi.bi-code-slash,
+.bi.bi-award {
+  font-size: 25px;
+  padding: 5px 10px;
+}
+
+#tech-icon-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px 0;
+}
+
+#tech-icon-wrapper .fab {
+  font-size: 28px;
+}
+
+p.about-p {
+  text-align: left;
+}
+
+#certification-wrapper {
+  text-align: left;
+}
+
+#certification-wrapper a {
+  font-size: 20px;
+  text-decoration: none;
+  color: #000;
+  cursor: pointer;
+}
+
+#certification-wrapper a:hover {
+  font-weight: bolder;
+  text-shadow: 2px 2px #ffffff;
+}
+
+#contact-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px 0;
+}
+#contact-wrapper .bi {
+  font-size: 28px;
+}
+
+#contact-wrapper i:hover {
+  text-shadow: 2px 2px #ffffff;
+  cursor: pointer;
+}

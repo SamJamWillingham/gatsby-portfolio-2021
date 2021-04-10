@@ -30,7 +30,8 @@ button:focus {
 .bi.bi-award,
 .bi.bi-cloud-drizzle-fill,
 .bi.bi-stars,
-.bi.bi-peace {
+.bi.bi-peace,
+.bi.bi-hammer {
   font-size: 25px;
   padding: 5px 10px;
 }

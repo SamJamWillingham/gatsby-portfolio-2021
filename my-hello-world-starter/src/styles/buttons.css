@@ -1,6 +1,7 @@
 .button-wrapper {
   position: absolute;
   right: 10px;
+  z-index: 10;
 }
 
 button {
@@ -26,37 +27,60 @@ button:focus {
 .bi.bi-chevron-up,
 .bi.bi-person,
 .bi.bi-code-slash,
-.bi.bi-award {
+.bi.bi-award,
+.bi.bi-cloud-drizzle-fill,
+.bi.bi-stars,
+.bi.bi-peace {
   font-size: 25px;
   padding: 5px 10px;
+}
+
+.BMLogo {
+  padding: 5px 5px 5px 15px;
 }
 
 #tech-icon-wrapper {
   display: flex;
   justify-content: space-evenly;
   padding: 10px 0;
+  background-color: #ddb7ab;
+  width: 330px;
+  margin-left: 12px;
 }
 
 #tech-icon-wrapper .fab {
   font-size: 28px;
 }
 
-p.about-p {
+.about-p {
+  font-size: 20px;
   text-align: left;
+  width: 315px;
+  margin-left: 12px;
+  padding: 10px;
+  background-color: #ddb7ab;
 }
 
-#certification-wrapper {
+#certification-wrapper,
+#project-wrapper {
   text-align: left;
+  margin-left: 15px;
+  background-color: #ddb7ab;
+  padding: 10px;
 }
 
-#certification-wrapper a {
+#certification-wrapper a,
+#project-wrapper a {
   font-size: 20px;
   text-decoration: none;
   color: #000;
   cursor: pointer;
+  line-height: 1.3;
+  align-items: center;
 }
 
-#certification-wrapper a:hover {
+#certification-wrapper a:hover,
+#project-wrapper a:hover {
   font-weight: bolder;
   text-shadow: 2px 2px #ffffff;
 }
@@ -73,4 +97,10 @@ p.about-p {
 #contact-wrapper i:hover {
   text-shadow: 2px 2px #ffffff;
   cursor: pointer;
+}
+
+@media (max-width: 425px) {
+  button {
+    font-size: 25px;
+  }
 }

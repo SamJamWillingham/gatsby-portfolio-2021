@@ -28,8 +28,7 @@ const [projectChevron, setProjectChevron] = useState('bi bi-chevron-down');
                 </button>
 
                 {openAbout ? (<div className="about-p">
-                        <p> I am a React developer, currently working for Vahterus Oy 
-                        and volunteering for the non-profit, Breathe Mongolia. Before I started web development, 
+                        <p> I am a Junior Web Developer for Vahterus Oy and I volunteer for the non-profit, Breathe Mongolia, as a Frontend Developer. Before I started web development, 
                         I was a high school teacher for five years! I have a bachelor's degree in English and four web development
                         certifications. I love connecting with people around the world and learning as much as I can from others.</p>
                 </div>) : (<></>)}

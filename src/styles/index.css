@@ -55,10 +55,17 @@ a .bi:hover {
 
 @media (max-width: 425px) {
   .plant {
-    max-width: 250px;
+    max-width: 270px;
     height: auto;
   }
   .arch {
     width: 300px;
+  }
+}
+
+@media (max-width: 425px) and (max-height: 760) {
+  .plant {
+    max-width: 240px;
+    height: auto;
   }
 }

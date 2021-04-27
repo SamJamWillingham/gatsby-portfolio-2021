@@ -53,7 +53,7 @@ a .bi:hover {
   z-index: 10;
 }
 
-@media (max-width: 425px) {
+@media screen and (max-width: 425px) {
   .plant {
     max-width: 270px;
     height: auto;
@@ -63,9 +63,9 @@ a .bi:hover {
   }
 }
 
-@media (max-width: 425px) and (max-height: 760) {
+@media screen and (max-width: 425px) and (max-height: 760) {
   .plant {
-    max-width: 240px;
+    max-width: 220px;
     height: auto;
   }
 }

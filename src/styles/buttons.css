@@ -7,7 +7,7 @@
 button {
   display: block;
   margin: 10px;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.5);
   color: #000;
   border: none;
   text-align: right;
@@ -104,4 +104,7 @@ button:focus {
   button {
     font-size: 25px;
   }
+  .about-p, #tech-icon-wrapper, #certification-wrapper, #project-wrapper  {
+  width: 300px;
+}
 }

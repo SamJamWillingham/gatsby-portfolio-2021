@@ -48,15 +48,17 @@ a .bi:hover {
   position: fixed;
   bottom: 0;
   z-index: 0;
+  height: 40%;
+  width: auto;
+  min-height: 200px;
 }
 .button-wrapper {
   z-index: 10;
 }
 
 @media screen and (max-width: 425px) {
-  .plant {
-    max-width: 240px;
-    height: auto;
+  .plant {;
+    opacity: 0;
   }
   .arch {
     width: 300px;

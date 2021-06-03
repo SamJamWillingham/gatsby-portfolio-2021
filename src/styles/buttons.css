@@ -69,6 +69,10 @@ button:focus {
   background-color: #ddb7ab;
   padding: 10px;
 }
+#certification-wrapper {
+  max-width: 315px;
+}
+
 
 #certification-wrapper a,
 #project-wrapper a {

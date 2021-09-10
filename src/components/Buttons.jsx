@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import Gatsby from "../images/gatsby";
 import GraphQL from "../images/graphQL";
+import Craft from "../images/craft";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHtml5, faSass, faBootstrap, faJs, faReact, faNodeJs } from "@fortawesome/free-brands-svg-icons"
 import "../styles/buttons.css"
@@ -60,6 +61,7 @@ function Buttons() {
 				<a href="https://www.shecodes.io/certificates/1be2599ee6b555613e53f8e6a84b8328">Front End Development -SheCodes</a><br />
 				<a href="https://www.shecodes.io/certificates/370d835ecda3fd24895ade35bcb679ed">React Development -SheCodes</a><br />
 				<a href="https://www.freecodecamp.org/certification/samjamwillingham/responsive-web-design">Responsive Web Design -freeCodeCamp</a><br />
+				<a href="https://www.freecodecamp.org/certification/samjamwillingham/javascript-algorithms-and-data-structures">Javascript Algorithms and Data Structures -freeCodeCamp</a><br />
 				<a href="https://www.udemy.com/certificate/UC-b994a18e-53bd-445e-8d3a-84f33bc4df8b/">Node, SQL, PostgreSQL - Mastering Backend Web Development</a>
 			</div>) : (<></>)}
 

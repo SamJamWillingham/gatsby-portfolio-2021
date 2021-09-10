@@ -8,6 +8,7 @@
   margin: 0;
   padding: 0;
   overflow-y: hidden;
+  z-index: -100;
 }
 
 * {
@@ -47,13 +48,10 @@ a .bi:hover {
 .plant {
   position: fixed;
   bottom: 0;
-  z-index: 0;
+  z-index: 1;
   height: 40%;
   width: auto;
   min-height: 200px;
-}
-.button-wrapper {
-  z-index: 10;
 }
 
 @media screen and (max-width: 425px) {

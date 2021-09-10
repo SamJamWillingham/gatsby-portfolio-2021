@@ -32,12 +32,8 @@ button:focus {
 .bi.bi-stars,
 .bi.bi-peace,
 .bi.bi-hammer {
-  font-size: 25px;
+  font-size: 30px;
   padding: 5px 10px;
-}
-
-.BMLogo {
-  padding: 5px 5px 5px 15px;
 }
 
 #tech-icon-wrapper {

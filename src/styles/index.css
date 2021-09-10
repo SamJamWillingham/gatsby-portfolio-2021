@@ -57,16 +57,25 @@ a .bi:hover {
 }
 
 @media screen and (max-width: 425px) {
-  .plant {;
-    opacity: 0;
-  }
-  .arch {
+.plant {
+	width: fit-content;
+	max-height: 32%;
+	left: -320px;
+}
+.arch {
     width: 300px;
+}
+}
+
+@media screen and (max-width: 325px) {
+  .plant {
+	max-height: 28%;
+	left: -345px;
   }
 }
 
-@media screen and (max-width: 375px) {
-  .plant {
-    display: none;
-  }
+@media screen and (max-height: 568px) {
+.plant {
+	display: none;
+}
 }

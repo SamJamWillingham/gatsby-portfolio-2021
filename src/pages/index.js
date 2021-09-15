@@ -1,21 +1,43 @@
 import React from "react"
-import plantSvg from "../images/undraw_Dev_focus_re_6iwt.svg"
-import Buttons from "../components/Buttons"
+import Briefcase from "../images/icons/briefcase_icon"
+import Person from "../images/icons/person_icon"
+import Code from "../images/icons/code_icon"
+import Award from "../images/icons/award_icon"
+import Chat from "../images/icons/chat_icon"
+import Joystick from "../images/icons/joystick_icon"
 import "../styles/index.css"
 
 
 export default function Home() {
-	return <div className="App">
+	return <div className="App theme-light">
 		<div className="name">
-			sam<br />jam
+			{`<samJam />`}
 		</div>
-		<div className="arch"></div>
-		<div className="contact">
-			<a href="https://www.linkedin.com/in/samantha-willingham-79576a1a8/"><i className="bi bi-linkedin"></i></a>
-			<a href="https://github.com/SamJamWillingham"><i className="bi bi-github"></i></a>
-			<a href="mailto:hello@samjam.dev"><i className="bi bi-envelope"></i></a>
+		<div className="grid-wrapper">
+			<div className="grid-block about">
+				<Person />
+				About
+			</div>
+			<div className="grid-block xp">
+				<Briefcase />
+				Work Experience
+			</div>
+			<div className="grid-block skills">
+				<Code />
+				Programming skills
+			</div>
+			<div className="grid-block certs">
+				<Award />
+				Certifications
+			</div>
+			<div className="grid-block social">
+				<Chat />
+				Follow me
+			</div>
+			<div className="grid-block hobbies">
+				<Joystick />
+				Interests Hobbies
+			</div>
 		</div>
-		<Buttons />
-		<img src={plantSvg} width={400} className="plant" />
-	</div>
+	</div >
 }

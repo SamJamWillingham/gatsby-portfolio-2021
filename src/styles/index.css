@@ -1,79 +1,89 @@
-@import url("https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css");
+
+
+/* dark mode */
+.theme-dark {
+  --one: #993c2b;
+  --two: #0f463c;
+  --three: #10342c;
+  --four: #224654;
+  --five: #64767b;
+  --six: #995e40;
+}
+/* light mode */
+  .theme-light {
+  --one: #ff6449;
+  --two: #197665;
+  --three: #1b584a;
+  --four: #3a768d;
+  --five: #a8c5ce;
+  --six: #FF9D6C;
+}
 
 .App {
   height: 98vh;
   width: 100%;
-  background-image: linear-gradient(to top, #fff 0%, #ddb7ab 100%);
+  background-color: #a8c5ce;
   margin: 0;
   padding: 0;
-  overflow-y: hidden;
-  z-index: -100;
+  position: relative;
 }
 
 * {
-  font-family: "Reenie Beanie", cursive;
+  font-family: 'Staatliches', cursive;
+  color: #fff;
+}
+div.name {
+	font-size: 3rem;
+	text-shadow: 4px 4px rgba(0, 0, 0, 0.3);
 }
 
-.name {
-  position: relative;
-  font-size: 7em;
-  text-align: right;
-  line-height: 0.6;
-  z-index: 2;
-}
-.arch {
-  position: absolute;
-  top: 47px;
-  right: 8px;
-  width: 330px;
-  height: 85px;
-  background-color: #999b84;
-  z-index: 1;
-}
-.contact {
-  position: relative;
-  font-size: 34px;
-  text-align: right;
-  padding: 20px 0;
-}
-a .bi {
-  color: #000;
-  margin: 15px 10px;
-}
-a .bi:hover {
-  text-shadow: 2px 2px #fff;
-  cursor: pointer;
-}
-.plant {
-  position: fixed;
-  bottom: 0;
-  z-index: 1;
-  height: 40%;
-  width: auto;
-  min-height: 200px;
+div.grid-wrapper {
+	display: grid;
+	position: relative;
+	grid-template-columns: repeat(2, 1fr);
+	grid-auto-rows: auto;
+	grid-gap: 0rem;
+	margin: auto;
+	margin-top: 3rem;
+	width: 70%;
+	box-shadow: 10px 10px rgba(0, 0, 0, 0.3);
 }
 
-@media screen and (max-width: 425px) {
-.plant {
-	width: fit-content;
-	max-height: 32%;
-	left: -320px;
+div.grid-block {
+	padding: 2rem;
+	text-align: center;
+	align-self: center;
+	height: 20vh;
+	font-size: 2rem;
 }
-.arch {
-    width: 300px;
-}
-}
-
-@media screen and (max-width: 325px) {
-  .plant {
-	max-height: 28%;
-	left: -345px;
-  }
+div.grid-block svg {
+	padding: 1rem;
+	width: 2.2rem;
+	height: auto;
 }
 
-@media screen and (max-height: 568px) {
-.plant {
-	display: none;
+.grid-block.about {
+	background-color: var(--one);
 }
+
+.grid-block.xp {
+	background-color: var(--two);
+}
+
+.grid-block.skills {
+	background-color: var(--four);
+}
+
+.grid-block.certs {
+	background-color: var(--six);
+}
+
+.grid-block.social {
+	background-color: var(--three);
+}
+
+.grid-block.hobbies {
+	background-color: var(--one);
 }

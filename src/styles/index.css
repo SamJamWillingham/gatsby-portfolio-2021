@@ -66,24 +66,72 @@ div.grid-block svg {
 
 .grid-block.about {
 	background-color: var(--one);
+	transition: 300ms all ease-in-out;
+}
+
+.grid-block.about:hover
+{
+        -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
 }
 
 .grid-block.xp {
 	background-color: var(--two);
+	transition: 300ms all ease-in-out;
+}
+
+.grid-block.xp:hover
+{
+        -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
 }
 
 .grid-block.skills {
 	background-color: var(--four);
+	transition: 300ms all ease-in-out;
+}
+
+.grid-block.skills:hover
+{
+        -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
 }
 
 .grid-block.certs {
 	background-color: var(--six);
+	transition: 300ms all ease-in-out;
+}
+
+.grid-block.certs:hover
+{
+        -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
 }
 
 .grid-block.social {
 	background-color: var(--three);
+	transition: 300ms all ease-in-out;
+}
+
+.grid-block.social:hover
+{
+        -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
 }
 
 .grid-block.hobbies {
 	background-color: var(--one);
+	transition: 300ms all ease-in-out;
+}
+
+.grid-block.hobbies:hover
+{
+        -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
 }

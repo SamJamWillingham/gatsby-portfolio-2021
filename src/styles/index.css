@@ -39,6 +39,12 @@ div.name {
 	text-shadow: 4px 4px rgba(0, 0, 0, 0.3);
 }
 
+/*
+
+GRID AND GRID BLOCK STYLES
+
+*/
+
 div.grid-wrapper {
 	display: grid;
 	position: relative;
@@ -56,7 +62,6 @@ div.grid-block {
 	text-align: center;
 	align-self: center;
 	height: 20vh;
-	font-size: 2rem;
 }
 div.grid-block svg {
 	padding: 1rem;
@@ -64,16 +69,21 @@ div.grid-block svg {
 	height: auto;
 }
 
-.grid-block.about {
-	background-color: var(--one);
-	transition: 300ms all ease-in-out;
+.grid-block .pop:hover {
+    -webkit-transform: scale(1.06);
+ 	-ms-transform: scale(1.06);
+    transform: scale(1.06);
+	cursor: pointer;
 }
 
-.grid-block.about:hover
-{
-        -webkit-transform: scale(1.1);
-        -ms-transform: scale(1.1);
-        transform: scale(1.1);
+.grid-block.about {
+	background-color: var(--one);
+	transition: 350ms all ease;
+}
+
+.grid-block.about.clicked {
+	transform-origin: 0 0;
+	transform: scale(2, 3);
 }
 
 .grid-block.xp {
@@ -81,11 +91,9 @@ div.grid-block svg {
 	transition: 300ms all ease-in-out;
 }
 
-.grid-block.xp:hover
-{
-        -webkit-transform: scale(1.1);
-        -ms-transform: scale(1.1);
-        transform: scale(1.1);
+.grid-block.xp.clicked {
+	transform-origin: 100% 0;
+	transform: scale(2, 3);
 }
 
 .grid-block.skills {
@@ -93,11 +101,9 @@ div.grid-block svg {
 	transition: 300ms all ease-in-out;
 }
 
-.grid-block.skills:hover
-{
-        -webkit-transform: scale(1.1);
-        -ms-transform: scale(1.1);
-        transform: scale(1.1);
+.grid-block.skills.clicked {
+	transform-origin: 0 50%;
+	transform: scale(2, 3);
 }
 
 .grid-block.certs {
@@ -105,11 +111,9 @@ div.grid-block svg {
 	transition: 300ms all ease-in-out;
 }
 
-.grid-block.certs:hover
-{
-        -webkit-transform: scale(1.1);
-        -ms-transform: scale(1.1);
-        transform: scale(1.1);
+.grid-block.certs.clicked {
+	transform-origin: 100% 50%;
+	transform: scale(2, 3);
 }
 
 .grid-block.social {
@@ -117,11 +121,9 @@ div.grid-block svg {
 	transition: 300ms all ease-in-out;
 }
 
-.grid-block.social:hover
-{
-        -webkit-transform: scale(1.1);
-        -ms-transform: scale(1.1);
-        transform: scale(1.1);
+.grid-block.social.clicked {
+	transform-origin: 0 100%;
+	transform: scale(2, 3);
 }
 
 .grid-block.hobbies {
@@ -129,9 +131,17 @@ div.grid-block svg {
 	transition: 300ms all ease-in-out;
 }
 
-.grid-block.hobbies:hover
-{
-        -webkit-transform: scale(1.1);
-        -ms-transform: scale(1.1);
-        transform: scale(1.1);
+.grid-block.hobbies.clicked {
+	transform-origin: 100% 100%;
+	transform: scale(2, 3);
+}
+
+/*
+
+COMPONENT STYLES
+
+*/
+
+.expanded-div {
+	transform: scale( 0.5, 0.5 );
 }

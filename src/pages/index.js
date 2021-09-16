@@ -36,7 +36,7 @@ export default function Home() {
 			</div>
 			<div className="grid-block hobbies">
 				<Joystick />
-				Interests Hobbies
+				Interests &amp; Hobbies
 			</div>
 		</div>
 	</div >

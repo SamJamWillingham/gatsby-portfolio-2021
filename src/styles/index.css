@@ -39,51 +39,52 @@ div.name {
 	text-shadow: 4px 4px rgba(0, 0, 0, 0.3);
 }
 
-div.grid-wrapper {
-	display: grid;
+div.flex-wrapper {
+	display: flex;
 	position: relative;
-	grid-template-columns: repeat(2, 1fr);
-	grid-auto-rows: auto;
-	grid-gap: 0rem;
 	margin: auto;
 	margin-top: 3rem;
 	width: 70%;
 	box-shadow: 10px 10px rgba(0, 0, 0, 0.3);
 }
 
-div.grid-block {
+
+div.flex-block {
 	padding: 2rem;
 	text-align: center;
 	align-self: center;
 	height: 20vh;
 	font-size: 2rem;
 }
-div.grid-block svg {
+div.flex-block svg {
 	padding: 1rem;
 	width: 2.2rem;
 	height: auto;
 }
+.flex-left, .flex-right {
+	width: 100%;
+}
 
-.grid-block.about {
+.flex-block.about {
 	background-color: var(--one);
 }
 
-.grid-block.xp {
+.flex-block.xp {
 	background-color: var(--two);
 }
 
-.grid-block.skills {
+.flex-block.skills {
 	background-color: var(--four);
 }
 
-.grid-block.certs {
+.flex-block.certs {
 	background-color: var(--six);
 }
 
-.grid-block.social {
+.flex-block.social {
 	background-color: var(--three);
 }
 
-.grid-block.hobbies {
+.flex-block.hobbies {
 	background-color: var(--one);
 }

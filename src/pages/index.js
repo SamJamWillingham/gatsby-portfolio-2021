@@ -1,12 +1,18 @@
 import React, { useState } from "react"
 import Person from "../images/icons/person_icon"
 import Briefcase from "../images/icons/briefcase_icon"
+import XP from "../components/XP"
 import About from "../components/About"
+import Skills from "../components/Skills"
 import Code from "../images/icons/code_icon"
+import Certifications from "../components/Certifications"
 import Award from "../images/icons/award_icon"
+import Social from "../components/Social"
 import Chat from "../images/icons/chat_icon"
+import Hobbies from "../components/Hobbies"
 import Joystick from "../images/icons/joystick_icon"
 import "../styles/index.css"
+
 
 
 export default function Home() {
@@ -58,43 +64,52 @@ export default function Home() {
 			</div>
 			<div className={xpClicked ? "grid-block xp" : "grid-block xp clicked"}
 				onClick={handleXpClick}>
-				<div className="pop">
-					<Briefcase />
-					<h1>Work Experience</h1>
-				</div>
+				{xpClicked ? (
+					<div className="pop">
+						<Briefcase />
+						<h1>Work Experience</h1>
+					</div>
+				) : (<XP />)}
 
 			</div>
 			<div className={skillsClicked ? "grid-block skills" : "grid-block skills clicked"}
 				onClick={handleSkillsClick}>
-				<div className="pop">
-					<Code />
-					<h1>Programming skills</h1>
-				</div>
+				{skillsClicked ? (
+					<div className="pop">
+						<Code />
+						<h1>Programming skills</h1>
+					</div>
+				) : (<Skills />)}
 
 			</div>
 			<div className={certsClicked ? "grid-block certs" : "grid-block certs clicked"}
 				onClick={handleCertsClick}>
-				<div className="pop">
-					<Award />
-					<h1>Certifications</h1>
-				</div>
+				{certsClicked ? (
+					<div className="pop">
+						<Award />
+						<h1>Certifications</h1>
+					</div>
+				) : (<Certifications />)}
 
 			</div>
 			<div className={socialClicked ? "grid-block social" : "grid-block social clicked"}
 				onClick={handleSocialClick}>
-				<div className="pop">
-					<Chat />
-					<h1>Follow me</h1>
-				</div>
+				{socialClicked ? (
+					<div className="pop">
+						<Chat />
+						<h1>Follow me</h1>
+					</div>
+				) : (<Social />)}
 
 			</div>
 			<div className={hobbiesClicked ? "grid-block hobbies" : "grid-block hobbies clicked"}
 				onClick={handleHobbiesClick}>
-				<div className="pop">
-					<Joystick />
-					<h1>Interests &amp; Hobbies</h1>
-				</div>
-
+				{hobbiesClicked ? (
+					<div className="pop">
+						<Joystick />
+						<h1>Interests &amp; Hobbies</h1>
+					</div>
+				) : (<Hobbies />)}
 			</div>
 		</div>
 	</div >

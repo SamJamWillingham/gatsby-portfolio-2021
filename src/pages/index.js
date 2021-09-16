@@ -13,34 +13,30 @@ export default function Home() {
 		<div className="name">
 			{`<samJam />`}
 		</div>
-		<div className="flex-wrapper">
-			<div className="flex-left">
-				<div className="flex-block about">
-					<Person />
-					About
-				</div>
-				<div className="flex-block skills">
-					<Code />
-					Programming skills
-				</div>
-				<div className="flex-block social">
-					<Chat />
-					Follow me
-				</div>
+		<div className="grid-wrapper">
+			<div className="grid-block about">
+				<Person />
+				About
 			</div>
-			<div className="flex-right">
-				<div className="flex-block xp">
-					<Briefcase />
-					Work Experience
-				</div>
-				<div className="flex-block certs">
-					<Award />
-					Certifications
-				</div>
-				<div className="flex-block hobbies">
-					<Joystick />
-					Interests Hobbies
-				</div>
+			<div className="grid-block xp">
+				<Briefcase />
+				Work Experience
+			</div>
+			<div className="grid-block skills">
+				<Code />
+				Programming skills
+			</div>
+			<div className="grid-block certs">
+				<Award />
+				Certifications
+			</div>
+			<div className="grid-block social">
+				<Chat />
+				Follow me
+			</div>
+			<div className="grid-block hobbies">
+				<Joystick />
+				Interests Hobbies
 			</div>
 		</div>
 	</div >

@@ -2461,19 +2461,41 @@ var autoReplace = function autoReplace() {
 
 /***/ }),
 
+/***/ "./node_modules/gatsby/dist/internal-plugins/bundle-optimisations/polyfills/object-assign.js":
+/*!***************************************************************************************************!*\
+  !*** ./node_modules/gatsby/dist/internal-plugins/bundle-optimisations/polyfills/object-assign.js ***!
+  \***************************************************************************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+module.exports = Object.assign;
+//# sourceMappingURL=object-assign.js.map
+
+/***/ }),
+
 /***/ "./.cache/api-runner-ssr.js":
 /*!**********************************!*\
   !*** ./.cache/api-runner-ssr.js ***!
   \**********************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "apiRunner": () => (/* binding */ apiRunner),
+/* harmony export */   "apiRunnerAsync": () => (/* binding */ apiRunnerAsync)
+/* harmony export */ });
 var plugins = [{
   name: 'gatsby-plugin-fontawesome-css',
   plugin: __webpack_require__(/*! ./node_modules/gatsby-plugin-fontawesome-css/gatsby-ssr */ "./node_modules/gatsby-plugin-fontawesome-css/gatsby-ssr.js"),
   options: {
     "plugins": []
   }
-}]; // During bootstrap, we write requires at top of this file which looks like:
+}];
+/* global plugins */
+// During bootstrap, we write requires at top of this file which looks like:
 // var plugins = [
 //   {
 //     plugin: require("/path/to/plugin1/gatsby-ssr.js"),
@@ -2485,51 +2507,88 @@ var plugins = [{
 //   },
 // ]
 
-const apis = __webpack_require__(/*! ./api-ssr-docs */ "./.cache/api-ssr-docs.js"); // Run the specified API in any plugins that have implemented it
+const apis = __webpack_require__(/*! ./api-ssr-docs */ "./.cache/api-ssr-docs.js");
 
+function augmentErrorWithPlugin(plugin, err) {
+  if (plugin.name !== `default-site-plugin`) {
+    // default-site-plugin is user code and will print proper stack trace,
+    // so no point in annotating error message pointing out which plugin is root of the problem
+    err.message += ` (from plugin: ${plugin.name})`;
+  }
 
-module.exports = (api, args, defaultReturn, argTransform) => {
+  throw err;
+}
+
+function apiRunner(api, args, defaultReturn, argTransform) {
   if (!apis[api]) {
     console.log(`This API doesn't exist`, api);
-  } // Run each plugin in series.
-  // eslint-disable-next-line no-undef
+  }
 
+  const results = [];
+  plugins.forEach(plugin => {
+    const apiFn = plugin.plugin[api];
 
-  let results = plugins.map(plugin => {
-    if (!plugin.plugin[api]) {
-      return undefined;
+    if (!apiFn) {
+      return;
     }
 
     try {
-      const result = plugin.plugin[api](args, plugin.options);
+      const result = apiFn(args, plugin.options);
 
       if (result && argTransform) {
         args = argTransform({
           args,
           result
         });
-      }
+      } // This if case keeps behaviour as before, we should allow undefined here as the api is defined
+      // TODO V4
 
-      return result;
+
+      if (typeof result !== `undefined`) {
+        results.push(result);
+      }
     } catch (e) {
-      if (plugin.name !== `default-site-plugin`) {
-        // default-site-plugin is user code and will print proper stack trace,
-        // so no point in annotating error message pointing out which plugin is root of the problem
-        e.message += ` (from plugin: ${plugin.name})`;
-      }
-
-      throw e;
+      augmentErrorWithPlugin(plugin, e);
     }
-  }); // Filter out undefined results.
-
-  results = results.filter(result => typeof result !== `undefined`);
-
-  if (results.length > 0) {
-    return results;
-  } else {
-    return [defaultReturn];
+  });
+  return results.length ? results : [defaultReturn];
+}
+async function apiRunnerAsync(api, args, defaultReturn, argTransform) {
+  if (!apis[api]) {
+    console.log(`This API doesn't exist`, api);
   }
-};
+
+  const results = [];
+
+  for (const plugin of plugins) {
+    const apiFn = plugin.plugin[api];
+
+    if (!apiFn) {
+      continue;
+    }
+
+    try {
+      const result = await apiFn(args, plugin.options);
+
+      if (result && argTransform) {
+        args = argTransform({
+          args,
+          result
+        });
+      } // This if case keeps behaviour as before, we should allow undefined here as the api is defined
+      // TODO V4
+
+
+      if (typeof result !== `undefined`) {
+        results.push(result);
+      }
+    } catch (e) {
+      augmentErrorWithPlugin(plugin, e);
+    }
+  }
+
+  return results.length ? results : [defaultReturn];
+}
 
 /***/ }),
 
@@ -6217,107 +6276,6 @@ module.exports = toPlainObject;
 
 /***/ }),
 
-/***/ "./node_modules/object-assign/index.js":
-/*!*********************************************!*\
-  !*** ./node_modules/object-assign/index.js ***!
-  \*********************************************/
-/***/ ((module) => {
-
-"use strict";
-/*
-object-assign
-(c) Sindre Sorhus
-@license MIT
-*/
-
-
-/* eslint-disable no-unused-vars */
-var getOwnPropertySymbols = Object.getOwnPropertySymbols;
-var hasOwnProperty = Object.prototype.hasOwnProperty;
-var propIsEnumerable = Object.prototype.propertyIsEnumerable;
-
-function toObject(val) {
-	if (val === null || val === undefined) {
-		throw new TypeError('Object.assign cannot be called with null or undefined');
-	}
-
-	return Object(val);
-}
-
-function shouldUseNative() {
-	try {
-		if (!Object.assign) {
-			return false;
-		}
-
-		// Detect buggy property enumeration order in older V8 versions.
-
-		// https://bugs.chromium.org/p/v8/issues/detail?id=4118
-		var test1 = new String('abc');  // eslint-disable-line no-new-wrappers
-		test1[5] = 'de';
-		if (Object.getOwnPropertyNames(test1)[0] === '5') {
-			return false;
-		}
-
-		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
-		var test2 = {};
-		for (var i = 0; i < 10; i++) {
-			test2['_' + String.fromCharCode(i)] = i;
-		}
-		var order2 = Object.getOwnPropertyNames(test2).map(function (n) {
-			return test2[n];
-		});
-		if (order2.join('') !== '0123456789') {
-			return false;
-		}
-
-		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
-		var test3 = {};
-		'abcdefghijklmnopqrst'.split('').forEach(function (letter) {
-			test3[letter] = letter;
-		});
-		if (Object.keys(Object.assign({}, test3)).join('') !==
-				'abcdefghijklmnopqrst') {
-			return false;
-		}
-
-		return true;
-	} catch (err) {
-		// We don't expect any of the above to throw, but better to be safe.
-		return false;
-	}
-}
-
-module.exports = shouldUseNative() ? Object.assign : function (target, source) {
-	var from;
-	var to = toObject(target);
-	var symbols;
-
-	for (var s = 1; s < arguments.length; s++) {
-		from = Object(arguments[s]);
-
-		for (var key in from) {
-			if (hasOwnProperty.call(from, key)) {
-				to[key] = from[key];
-			}
-		}
-
-		if (getOwnPropertySymbols) {
-			symbols = getOwnPropertySymbols(from);
-			for (var i = 0; i < symbols.length; i++) {
-				if (propIsEnumerable.call(from, symbols[i])) {
-					to[symbols[i]] = from[symbols[i]];
-				}
-			}
-		}
-	}
-
-	return to;
-};
-
-
-/***/ }),
-
 /***/ "./node_modules/prop-types/checkPropTypes.js":
 /*!***************************************************!*\
   !*** ./node_modules/prop-types/checkPropTypes.js ***!
@@ -6448,7 +6406,7 @@ module.exports = checkPropTypes;
 
 
 var ReactIs = __webpack_require__(/*! react-is */ "./node_modules/react-is/index.js");
-var assign = __webpack_require__(/*! object-assign */ "./node_modules/object-assign/index.js");
+var assign = __webpack_require__(/*! object-assign */ "./node_modules/gatsby/dist/internal-plugins/bundle-optimisations/polyfills/object-assign.js");
 
 var ReactPropTypesSecret = __webpack_require__(/*! ./lib/ReactPropTypesSecret */ "./node_modules/prop-types/lib/ReactPropTypesSecret.js");
 var checkPropTypes = __webpack_require__(/*! ./checkPropTypes */ "./node_modules/prop-types/checkPropTypes.js");
@@ -7296,7 +7254,7 @@ if (false) {} else {
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("/Users/SFWillingham/Desktop/gatsby-portfolio/node_modules/react-dom/server.js");;
+module.exports = require("/Users/SFWillingham/Desktop/gatsby-portfolio/node_modules/react-dom/server.js");
 
 /***/ }),
 
@@ -7307,7 +7265,7 @@ module.exports = require("/Users/SFWillingham/Desktop/gatsby-portfolio/node_modu
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("/Users/SFWillingham/Desktop/gatsby-portfolio/node_modules/react/index.js");;
+module.exports = require("/Users/SFWillingham/Desktop/gatsby-portfolio/node_modules/react/index.js");
 
 /***/ })
 
@@ -7409,8 +7367,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom/server */ "react-dom/server");
 /* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_dom_server__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _api_runner_ssr__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./api-runner-ssr */ "./.cache/api-runner-ssr.js");
-/* harmony import */ var _api_runner_ssr__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_api_runner_ssr__WEBPACK_IMPORTED_MODULE_3__);
 
+
+/* global BROWSER_ESM_ONLY */
 
 
  // import testRequireError from "./test-require-error"
@@ -7495,7 +7454,7 @@ Html = Html && Html.__esModule ? Html.default : Html;
     postBodyComponents = components;
   };
 
-  _api_runner_ssr__WEBPACK_IMPORTED_MODULE_3___default()(`onRenderBody`, {
+  (0,_api_runner_ssr__WEBPACK_IMPORTED_MODULE_3__.apiRunner)(`onRenderBody`, {
     setHeadComponents,
     setHtmlAttributes,
     setBodyAttributes,
@@ -7504,7 +7463,7 @@ Html = Html && Html.__esModule ? Html.default : Html;
     setBodyProps,
     pathname: pagePath
   });
-  _api_runner_ssr__WEBPACK_IMPORTED_MODULE_3___default()(`onPreRenderHTML`, {
+  (0,_api_runner_ssr__WEBPACK_IMPORTED_MODULE_3__.apiRunner)(`onPreRenderHTML`, {
     getHeadComponents,
     replaceHeadComponents,
     getPreBodyComponents,
@@ -7526,7 +7485,7 @@ Html = Html && Html.__esModule ? Html.default : Html;
     htmlAttributes,
     bodyAttributes,
     preBodyComponents,
-    postBodyComponents: postBodyComponents.concat([/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("script", {
+    postBodyComponents: postBodyComponents.concat([ true && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("script", {
       key: `polyfill`,
       src: "/polyfill.js",
       noModule: true
@@ -7536,7 +7495,7 @@ Html = Html && Html.__esModule ? Html.default : Html;
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("script", {
       key: `commons`,
       src: "/commons.js"
-    })])
+    })].filter(Boolean))
   });
   htmlStr = (0,react_dom_server__WEBPACK_IMPORTED_MODULE_2__.renderToStaticMarkup)(htmlElement);
   htmlStr = `<!DOCTYPE html>${htmlStr}`;

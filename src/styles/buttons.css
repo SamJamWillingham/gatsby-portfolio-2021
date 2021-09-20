@@ -17,6 +17,7 @@ display: block;
   font-size: 30px;
   padding: 15px;
   width: 100%;
+  z-index: 999;
 }
 
 button:hover {
@@ -49,6 +50,7 @@ display: block;
   text-align: left;
   padding: 15px;
   width: 97%;
+  z-index: 999;
 }
 
 #tech-expanded {
@@ -58,6 +60,7 @@ display: block;
   background-color: #ddb7ab;
   width: 100%;
   margin-left: 12px;
+  z-index: 999;
 }
 
 #tech-expanded .fab {
@@ -70,6 +73,7 @@ display: block;
   margin-left: 15px;
   background-color: #ddb7ab;
   padding: 10px;
+  z-index: 999;
 }
 
 

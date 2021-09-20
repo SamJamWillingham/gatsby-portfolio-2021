@@ -1,18 +1,22 @@
 .button-wrapper {
   position: absolute;
-  right: 10px;
+  top: 24%;
+  width: 63%;
+  height: 85px;
+  right: 8%;
   z-index: 10;
 }
 
 button {
-  display: block;
+	display: block;
   margin: 10px;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: #F1E1DC;
   color: #000;
   border: none;
-  text-align: right;
+  text-align: left;
   font-size: 30px;
   padding: 15px;
+  width: 100%;
 }
 
 button:hover {
@@ -24,7 +28,11 @@ button:focus {
 }
 
 .bi.bi-chevron-down,
-.bi.bi-chevron-up,
+.bi.bi-chevron-up {
+  font-size: 22px;
+  padding: 5px 10px;
+}
+
 .bi.bi-person,
 .bi.bi-code-slash,
 .bi.bi-award,
@@ -36,42 +44,40 @@ button:focus {
   padding: 5px 10px;
 }
 
-#tech-icon-wrapper {
+#about-expanded {
+display: block;
+  font-size: 1.4rem;
+  text-align: left;
+  background-color: #ddb7ab;
+  margin: 10px;
+  text-align: left;
+  padding: 15px;
+  width: 97%;
+}
+
+#tech-expanded {
   display: flex;
   justify-content: space-evenly;
   padding: 10px 0;
   background-color: #ddb7ab;
-  width: 330px;
+  width: 100%;
   margin-left: 12px;
 }
 
-#tech-icon-wrapper .fab {
+#tech-expanded .fab {
   font-size: 28px;
 }
 
-.about-p {
-  font-size: 20px;
-  text-align: left;
-  width: 315px;
-  margin-left: 12px;
-  padding: 10px;
-  background-color: #ddb7ab;
-}
-
-#certification-wrapper,
-#project-wrapper {
+#certification-expanded {
+	width: 96.5%;
   text-align: left;
   margin-left: 15px;
   background-color: #ddb7ab;
   padding: 10px;
 }
-#certification-wrapper {
-  max-width: 315px;
-}
 
 
-#certification-wrapper a,
-#project-wrapper a {
+#certification-expanded a {
   font-size: 20px;
   text-decoration: none;
   color: #000;
@@ -80,31 +86,16 @@ button:focus {
   align-items: center;
 }
 
-#certification-wrapper a:hover,
-#project-wrapper a:hover {
+#certification-expanded a:hover {
   font-weight: bolder;
   text-shadow: 2px 2px #ffffff;
-}
-
-#contact-wrapper {
-  display: flex;
-  justify-content: space-evenly;
-  padding: 10px 0;
-}
-#contact-wrapper .bi {
-  font-size: 28px;
-}
-
-#contact-wrapper i:hover {
-  text-shadow: 2px 2px #ffffff;
-  cursor: pointer;
 }
 
 @media (max-width: 425px) {
   button {
     font-size: 25px;
   }
-  .about-p, #tech-icon-wrapper, #certification-wrapper, #project-wrapper  {
+  .about-p, #tech-icon-wrapper, #certification-wrapper {
   width: 300px;
 }
 }

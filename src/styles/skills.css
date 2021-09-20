@@ -1,0 +1,44 @@
+/* 
+
+progress bars
+
+*/
+
+.meter {
+  box-sizing: content-box;
+  height: 0.5rem;
+  position: relative;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
+  padding: 0.45rem;
+}
+.meter > span {
+  display: block;
+  height: 100%;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background-color: #197665;
+  box-shadow: inset 0 2px 9px rgba(255, 255, 255, 0.2),
+    inset 0 -2px 6px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+  
+}
+
+div.meter-wrapper {
+	display: flex;
+	flex-direction: row;
+}
+
+.meter-icon {
+	flex: 1;
+	margin: auto;
+	max-width: 8rem;
+	height: 2rem;
+}
+
+.meter {
+	flex: 4; 
+}

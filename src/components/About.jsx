@@ -10,7 +10,7 @@ export default function About() {
 				</div>
 				<div className="card-item">
 					<h2>Sam Fields Willingham</h2>
-					<p>she/they</p>
+					<p>she/her/they</p>
 					<p>Charlotte, NC</p>
 					<a href="hello@samjam.dev">hello@samjam.dev</a>
 				</div>

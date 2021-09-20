@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-pages-markdown-remark-frontmatter-slug-js",
+    "path": "/about/",
+    "result": {"data":{"markdownRemark":{"html":"<p>I'm Sam. I live in the Queen City, or Charlotte, NC. Right now I am a junior web developer for Vahterus Oy but before I started web development, I was a high school teacher for five years! I have a bachelor's degree in English and six web development certifications. I started learning web development with React and React frameworks, but now I am doing much of my work in PHP and Twig. I love connecting with people around the world and learning as much as I can from others!<br />Want to work on a project together? Message me on LinkedIn or use the contact button above.</p>","id":"dc0bd956-fcd0-517a-b926-053697c7c382","frontmatter":{"date":"September 20, 2021","slug":"/about","title":"About me"}}},"pageContext":{"id":"dc0bd956-fcd0-517a-b926-053697c7c382","frontmatter__slug":"/about","__params":{"frontmatter__slug":"about"}}},
+    "staticQueryHashes": []}

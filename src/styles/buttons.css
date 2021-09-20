@@ -8,7 +8,7 @@
 }
 
 button {
-	display: block;
+display: block;
   margin: 10px;
   background-color: #F1E1DC;
   color: #000;
@@ -92,10 +92,29 @@ display: block;
 }
 
 @media (max-width: 425px) {
-  button {
+.button-wrapper {
+    width: 80%; 
+}
+
+button {
     font-size: 25px;
   }
-  .about-p, #tech-icon-wrapper, #certification-wrapper {
-  width: 300px;
+
+#about-expanded {
+  width: 90.5%;
+}
+
+#tech-expanded {
+ width: 99.5%;
+} 
+
+#certification-expanded {
+width: 93%;
+}
+}
+
+@media (max-width: 375px) {
+.button-wrapper {
+    width: 87%; 
 }
 }

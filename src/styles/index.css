@@ -54,6 +54,12 @@ a .bi:hover {
   min-height: 200px;
 }
 
+@media screen and (max-width: 1024px) {
+.woman_svg {
+	max-height: 35%;
+}
+}
+
 @media screen and (max-width: 425px) {
 .woman_svg {
 	width: fit-content;
@@ -61,7 +67,13 @@ a .bi:hover {
 	left: -320px;
 }
 .banner {
-    width: 300px;
+    width: 80%; 
+}
+}
+
+@media screen and (max-width: 375px) {
+.banner {
+    width: 90%; 
 }
 }
 

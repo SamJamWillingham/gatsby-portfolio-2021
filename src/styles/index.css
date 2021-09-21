@@ -76,6 +76,7 @@ a .bi:hover {
 }
 .woman_svg {
   position: fixed;
+  float: left;
   bottom: 0;
   z-index: 1;
   height: 40%;

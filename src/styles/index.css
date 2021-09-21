@@ -1,10 +1,29 @@
 @import url("https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap");
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css");
 
+.light-theme {
+--background-color: linear-gradient(to top, #fff 0%, #ddb7ab 100%);
+--banner: #999b84;
+--text: #000;
+--text-shadow: 2px 2px #fff;
+--contact-text-shadow: 2px 2px #fff;
+--button-background-color: #F1E1DC;
+--expanded-div-background-color: #ddb7ab;
+}
+
+.dark-theme {
+--background-color: linear-gradient(to top, #000 0%, #350B40 100%);
+--banner: #94B5C0;
+--text: #fff;
+--text-shadow: 2px 2px #350B40;
+--contact-text-shadow: 2px 2px #94B5C0;
+--button-background-color: #AD6C80;
+--expanded-div-background-color: #EE99A0;
+}
 .App {
   height: 98vh;
   width: 100%;
-  background-image: linear-gradient(to top, #fff 0%, #ddb7ab 100%);
+  background-image: var(--background-color);
   margin: 0;
   padding: 0;
   overflow-y: hidden;
@@ -20,29 +39,39 @@
   text-align: right;
   line-height: 0.6;
   z-index: 2;
+  color: var(--text);
 }
+
 .banner {
   position: absolute;
   top: 47px;
   right: 8px;
   width: 70%;
   height: 85px;
-  background-color: #999b84;
+  background-color: var(--banner);
   z-index: 1;
 }
+
 .contact {
   position: relative;
   font-size: 34px;
   text-align: right;
   padding: 10px 0;
   margin: 10px 0;
+  color: var(--text);
 }
+
+.contact .bi:hover {
+	text-shadow: var(--contact-text-shadow);
+}
+
 a .bi {
-  color: #000;
+  color: var(--text);
   margin: 15px 10px;
 }
+
 a .bi:hover {
-  text-shadow: 2px 2px #fff;
+  text-shadow: var(--text-shadow);
   cursor: pointer;
 }
 .woman_svg {
@@ -70,7 +99,49 @@ a .bi:hover {
     width: 80%; 
 }
 }
+/* 
 
+DARK MODE ICONS
+
+*/
+
+.dark-mode-wrapper {
+	position: absolute;
+	top: 1rem;
+	left: 1rem;
+	z-index: 1000;
+}
+
+svg.bi {
+	padding: 5px;
+}
+
+svg.bi.bi-toggle-on {
+	color: #4B3869;
+}
+
+svg.bi.bi-toggle-off {
+	color: var(--text);
+}
+
+.bi.bi-sun-fill {
+	background-color: #FF6767;
+	color: #FFEDD3;
+	border-radius: 50%;
+	margin-bottom: 6px;
+}
+
+.bi.bi-moon-stars-fill {
+	background-color: #4B3869;
+	color: #FFEFBC;
+	border-radius: 50%;
+	margin-bottom: 6px;
+}
+/* 
+
+MOBILE
+
+*/
 @media screen and (max-width: 375px) {
 .banner {
     width: 90%; 

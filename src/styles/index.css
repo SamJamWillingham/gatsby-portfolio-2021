@@ -142,6 +142,12 @@ svg.bi.bi-toggle-off {
 MOBILE
 
 */
+@media screen and (max-width: 425px) {
+.dark-mode-wrapper {
+	top: 0.6rem;
+}
+}
+
 @media screen and (max-width: 375px) {
 .banner {
     width: 90%; 

@@ -1,10 +1,8 @@
 import React, { useState } from "react"
 import About from "../components/About"
-import Gatsby from "../images/gatsby";
-import GraphQL from "../images/graphQL";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHtml5, faSass, faBootstrap, faJs, faReact, faNodeJs } from "@fortawesome/free-brands-svg-icons"
+import 'bootstrap/dist/css/bootstrap.min.css'
 import "../styles/buttons.css"
+import TechProgressBars from "./TechProgressBars"
 
 function Buttons() {
 	const [openAbout, setOpenAbout] = useState(false);
@@ -34,16 +32,7 @@ function Buttons() {
 				}}>
 				<i className="bi bi-code-slash"></i>Skills + Technologies<i className={skillsChevron}></i></button>
 
-			{openSkills ? (<div id="tech-expanded">
-				<FontAwesomeIcon icon={faHtml5} size="2x" />
-				<FontAwesomeIcon icon={faSass} size="2x" />
-				<FontAwesomeIcon icon={faBootstrap} size="2x" />
-				<FontAwesomeIcon icon={faJs} size="2x" />
-				<FontAwesomeIcon icon={faReact} size="2x" />
-				<Gatsby />
-				<GraphQL />
-				<FontAwesomeIcon icon={faNodeJs} size="2x" />
-			</div>) : (<></>)}
+			{openSkills ? (<TechProgressBars />) : (<></>)}
 
 			<button
 				onClick={() => {

@@ -68,6 +68,15 @@ display: block;
   font-size: 28px;
 }
 
+#tech-expanded .inline {
+	position: relative;
+	display: inline;
+	margin: auto;
+}
+#tech-expanded .add-padding {
+	padding-top: 5px;
+}
+
 #certification-expanded {
 	width: 96.5%;
   text-align: left;

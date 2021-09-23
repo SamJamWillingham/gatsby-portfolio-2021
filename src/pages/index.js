@@ -2,10 +2,10 @@ import React, { useState } from "react"
 import womanWLaptop from "../images/undraw_Dev_focus_re_6iwt.svg"
 import Buttons from "../components/Buttons"
 import "../styles/index.css"
-import Sun from "../images/Sun"
-import ToggleOff from "../images/toggle_off"
-import ToggleOn from "../images/toggle_on"
-import Moon from "../images/Moon"
+import Sun from "../images/icons/Sun"
+import ToggleOff from "../images/icons/toggle_off"
+import ToggleOn from "../images/icons/toggle_on"
+import Moon from "../images/icons/Moon"
 import witch from "../images/undraw_witch_7uk7.svg"
 
 export default function Home() {
@@ -32,7 +32,7 @@ export default function Home() {
 				<a href="mailto:hello@samjam.dev"><i className="bi bi-envelope"></i></a>
 			</div>
 			<Buttons />
-			{darkMode ? (<img src={witch} width={400} className="woman_svg" />) : (<img src={womanWLaptop} width={400} className="woman_svg" />)}
+			{darkMode ? (<img src={witch} width={400} className="woman_svg" alt="Halloween witch" />) : (<img src={womanWLaptop} width={400} className="woman_svg" alt="woman sitting at computer" />)}
 
 		</div>
 	)

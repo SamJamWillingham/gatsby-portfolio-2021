@@ -10,7 +10,6 @@
 --button-background-color: #F1E1DC;
 --expanded-div-background-color: #ddb7ab;
 }
-
 .dark-theme {
 --background-color: linear-gradient(to top, #000 0%, #350B40 100%);
 --banner: #94B5C0;
@@ -21,7 +20,7 @@
 --expanded-div-background-color: #EE99A0;
 }
 .App {
-  height: 98vh;
+  height: 180vh;
   width: 100%;
   background-image: var(--background-color);
   margin: 0;
@@ -31,6 +30,14 @@
 
 * {
   font-family: "Reenie Beanie", cursive;
+}
+
+.row {
+	flex-wrap: nowrap;
+}
+
+.text-centered {
+	text-align: center;
 }
 
 .name {

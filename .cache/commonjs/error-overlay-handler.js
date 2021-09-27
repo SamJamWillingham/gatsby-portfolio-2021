@@ -1,26 +1,29 @@
 "use strict";
 
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+
 exports.__esModule = true;
-exports.reportError = exports.clearError = void 0;
+exports.errorMap = exports.reportError = exports.clearError = void 0;
+
+var ErrorOverlay = _interopRequireWildcard(require("react-error-overlay"));
+
+// Report runtime errors
+ErrorOverlay.startReportingRuntimeErrors({
+  onError: () => {},
+  filename: `/commons.js`
+});
+ErrorOverlay.setEditorHandler(errorLocation => window.fetch(`/__open-stack-frame-in-editor?fileName=` + window.encodeURIComponent(errorLocation.fileName) + `&lineNumber=` + window.encodeURIComponent(errorLocation.lineNumber || 1)));
 const errorMap = {};
+exports.errorMap = errorMap;
 
 const handleErrorOverlay = () => {
   const errors = Object.values(errorMap);
-  let errorsToDisplay = [];
 
   if (errors.length > 0) {
-    errorsToDisplay = errors.flatMap(e => e).filter(Boolean);
-  }
-
-  if (errorsToDisplay.length > 0) {
-    window._gatsbyEvents.push([`FAST_REFRESH`, {
-      action: `SHOW_GRAPHQL_ERRORS`,
-      payload: errorsToDisplay
-    }]);
+    const errorMsg = errors.join(`\n\n`);
+    ErrorOverlay.reportBuildError(errorMsg);
   } else {
-    window._gatsbyEvents.push([`FAST_REFRESH`, {
-      action: `CLEAR_GRAPHQL_ERRORS`
-    }]);
+    ErrorOverlay.dismissBuildError();
   }
 };
 

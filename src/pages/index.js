@@ -7,10 +7,27 @@ import ToggleOff from "../images/icons/toggle_off"
 import ToggleOn from "../images/icons/toggle_on"
 import Moon from "../images/icons/Moon"
 import witch from "../images/undraw_witch_7uk7.svg"
+import SecretPlaylistModal from "../components/SecretPlaylistModal"
+
 
 export default function Home() {
 	const [darkMode, setDarkMode] = useState(false);
 	const [themeMode, setThemeMode] = useState("App light-theme");
+
+	const [modalShow, setModalShow] = useState(false);
+	const pressed = [];
+	const secretCode = 'samjam';
+
+	window.addEventListener("keyup", (e) => {
+		console.log(e.key);
+		pressed.push(e.key);
+		pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
+
+		if (pressed.join('').includes(secretCode)) {
+			console.log('You found my hidden playlist! Nice.')
+			setModalShow(true);
+		}
+	});
 
 	return (
 		<div className={themeMode}>
@@ -33,7 +50,10 @@ export default function Home() {
 			</div>
 			<Buttons />
 			{darkMode ? (<img src={witch} width={400} className="woman_svg" alt="Halloween witch" />) : (<img src={womanWLaptop} width={400} className="woman_svg" alt="woman sitting at computer" />)}
-
+			<SecretPlaylistModal
+				show={modalShow}
+				onHide={() => setModalShow(false)}
+			/>
 		</div>
 	)
 }

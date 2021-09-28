@@ -1,0 +1,55 @@
+.modal-content {
+	background-color: #000;
+	color: #fff;
+	border-radius: 0;
+	border: none;
+}
+
+.modal-header {
+	align-items: center;
+	justify-content: space-between;
+	border: none;
+}
+
+.modal-header .modal-title {
+	font-size: 1.8rem;
+}
+
+.modal-header button {
+	text-align: right;
+	font-size: 5rem;
+	color: #999b84;
+	opacity: 1;
+	max-width: 20rem;
+}
+
+.modal-header button:hover {
+	color: #fff;
+	text-shadow: 0 2px 0 #999b84;
+}
+
+.modal-body {
+	text-align: center;
+}
+
+.modal-footer {
+	border: none
+}
+
+.modal-footer button {
+	background-color: #999b84;
+	border: none;
+	font-size: 1.4rem;
+	border-radius: 0;
+}
+
+/*
+
+MOBILE
+
+*/
+@media screen and (max-width: 350px) {
+.modal-body iframe {
+	width: 100% !important;
+}
+}

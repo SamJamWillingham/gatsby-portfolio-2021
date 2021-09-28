@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import womanWLaptop from "../images/undraw_Dev_focus_re_6iwt.svg"
 import Buttons from "../components/Buttons"
 import "../styles/index.css"
@@ -18,16 +18,18 @@ export default function Home() {
 	const pressed = [];
 	const secretCode = 'samjam';
 
-	window.addEventListener("keyup", (e) => {
-		console.log(e.key);
-		pressed.push(e.key);
-		pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
+	useEffect((e) => {
+		window.addEventListener("keyup", (e) => {
+			console.log(e.key);
+			pressed.push(e.key);
+			pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
 
-		if (pressed.join('').includes(secretCode)) {
-			console.log('You found my hidden playlist! Nice.')
-			setModalShow(true);
-		}
-	});
+			if (pressed.join('').includes(secretCode)) {
+				console.log('You found my hidden playlist! Nice.')
+				setModalShow(true);
+			}
+		})
+	})
 
 	return (
 		<div className={themeMode}>
